@@ -42,9 +42,13 @@ jobs:
       - name: Check Sway formatting
         run: |
           cd ${{ matrix.project }}
+          forc -V
           forc fmt --check
+          forc -V
 
       - name: Build Sway
         run: |
           cd ${{ matrix.project }}
+          forc -V
           forc --help
+          forc -V
