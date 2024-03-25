@@ -20,10 +20,12 @@ jobs:
       matrix:
         project:
           [
+            "interface/IRegistry",
             "interface/IUserACL",
             "interface/IVault",
             "interface/IVaultACL",
             "modules/deposit",
+            "registry",
             "user_acl",
             "vault",
             "vault_acl",
