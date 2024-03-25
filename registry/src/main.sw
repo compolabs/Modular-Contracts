@@ -49,7 +49,7 @@ impl Registry for Contract {
 
         log(RemoveACLEvent { 
             acl: acl.unwrap(),
-            user
+            user,
         })
     }
 }
