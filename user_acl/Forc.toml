@@ -1,5 +1,5 @@
 [project]
-authors = ["Fuel Labs <contact@fuel.sh>"]
+authors = ["Braqzen"]
 entry = "main.sw"
 license = "Apache-2.0"
 name = "user_acl"
