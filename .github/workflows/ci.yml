@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project:
+          [
+            "interface/IUserACL",
+            "interface/IVault",
+            "interface/IVaultACL",
+            "modules/deposit",
+            "user_acl",
+            "vault",
+            "vault_acl",
+          ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Fuel toolchain
+        uses: FuelLabs/action-fuel-toolchain@v0.6.0
+        with:
+          toolchain: beta-5
+
+      - name: Check Sway formatting
+        run: |
+          cd ${{ matrix.project }}
+          forc fmt --check
+
+      - name: Build Sway
+        run: |
+          cd ${{ matrix.project }}
+          forc build --locked

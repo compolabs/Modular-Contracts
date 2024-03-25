@@ -1,0 +1,10 @@
+[workspace]
+members = [
+  "./interface/IUserACL",
+  "./interface/IVault",
+  "./interface/IVaultACL",
+  "./modules/deposit",
+  "./user_acl",
+  "./vault",
+  "./vault_acl",
+]
