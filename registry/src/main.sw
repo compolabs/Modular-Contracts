@@ -47,7 +47,7 @@ impl Registry for Contract {
 
         storage.registry.insert(user, None);
 
-        log(RemoveACLEvent { 
+        log(RemoveACLEvent {
             acl: acl.unwrap(),
             user,
         })
