@@ -1,0 +1,8 @@
+[project]
+authors = ["Braqzen"]
+entry = "main.sw"
+license = "Apache-2.0"
+name = "vault_acl"
+
+[dependencies]
+IVaultACL = { path = "../interface/IVaultACL" }
